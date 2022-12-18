@@ -70,10 +70,14 @@ class peopleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\people  $people
      * @return \Illuminate\Http\Response
+     * @param  string $name
+     * @param  int $id
      */
-    public function update(Request $request, people $people)
+    public function update(Request $request,int $id, string $name)
     {
-        //
+        $var = people::find($id);
+        $var->update(['name'=>$name]);
+        return response('Dane zostały zmienione',200);
     }
 
     /**
